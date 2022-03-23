@@ -1,46 +1,35 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AgregaroComponent } from './pages/agregaro/agregaro.component';
-import { BuscaroComponent } from './pages/buscaro/buscaro.component';
+
+import { AgregarComponent } from './pages/agregar/agregar.component';
+import { BuscarComponent } from './pages/buscar/buscar.component';
 import { HeroeComponent } from './pages/heroe/heroe.component';
 import { ListadoComponent } from './pages/listado/listado.component';
 import { HomeComponent } from './pages/home/home.component';
 
-const routes: Routes = [
+const rutas: Routes = [
   {
     path: '',
-    component:HomeComponent,
+    component: HomeComponent,
     children: [
-      {
-        path: 'listado',
-        component: ListadoComponent,
-      },
-      {
-        path: 'agregar',
-        component: AgregaroComponent,
-      },
-      {
-        path: 'editar/:id',
-        component: AgregaroComponent,
-      },
-      {
-        path: 'buscar',
-        component: BuscaroComponent,
-      },
-      {
-        path: ':id',
-        component: HeroeComponent,
-      },
-      {
-        path: '**',
-        redirectTo: 'listado',
-      },
-    ],
-  },
+      { path: 'listado', component: ListadoComponent },
+      { path: 'agregar', component: AgregarComponent },
+      { path: 'editar/:id', component: AgregarComponent },
+      { path: 'buscar', component: BuscarComponent },
+      { path: ':id', component: HeroeComponent },
+      { path: '**', redirectTo: 'listado' }
+    ]
+  }
 ];
 
+
+
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  imports: [
+    RouterModule.forChild( rutas )
+  ],
+  exports: [
+    RouterModule
+  ]
 })
-export class HeroesRoutingModule {}
+export class HeroesRoutingModule { }
