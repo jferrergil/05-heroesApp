@@ -15,8 +15,7 @@ export class LoginComponent{
 
   login() {
 
-    // Ir al backend
-    // un usuario
+
     this.authService.login()
       .subscribe( resp => {
         console.log(resp);
